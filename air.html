@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flight ticket booking<title>
+        
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test page</title>
+    <style>
+        button{
+            background-color: rgb(27, 206, 27);
+        }
+    </style>
+    <head>
+        <link rel="stylesheet" href="air.css.css">
+    </head>
+    
+</head>
+<body>
+   
+    <table  cellpadding=20 align=center>
+    <tr>
+            
+        <td><img height=90px width=90px src="Let's Go Logo.jpg"></td>
+     <td><font size = 7> LET'S GO AIRLINES| <font size = 5>Fly high through your cloudy days...</font></font></td></td>
+        
+        </tr>
+    
+    
+        </div>
+    </div>
+    <table  cellpadding=30 cellspacing=20  align=center 
+            
+        <tr>
+        
+        <td><font size=6><a href="overview.html" target="f2">Overview</a></font></td>
+        
+        <td><font size=6><a href="vision.html" target="f2">Vision</a></font></td>
+        <td><font size=6><a href="values.html" target="f2">Values</a></font></td>
+        </tr>
+    </table>
+        
+    </header>
+        <center>
+            <form name="Flightt" method="post" onSubmit="return validate()">
+            <fieldset>
+                <table>
+                    <h1>Ticket Booking Forum</h1>
+                    <tr>
+                        <th>From</th>
+                        <td>:</td>
+                        <td><select class="option" name="subject">
+                            
+                            <option>Bangalore</option>
+                            <option>Chennai</option>
+                            <option>Delhi</option>
+                            <option>Kolkata</option>
+                            <option>Mumbai</option>
+                   
+                        <th>To</th>
+                        <td>:</td>
+                        <td><select class="option" name="subject">
+                            
+                            <option>Bangalore</option>
+                            <option>Chennai</option>
+                            <option>Delhi</option>
+                            <option>Kolkata</option>
+                            <option>Mumbai</option>
+                    </tr>
+                    <tr>
+                        <th>Depart on</th>
+                        <td>:</td>
+                        <td><input type="date" min="2021-08-23"</td>
+                    </tr>
+                    <tr>
+                        <th>Adults</th>
+                        <td>:</td>
+                        <td><select class="option" name="subject">
+                            <option disabled="disabled" selected="selected">0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            
+                            <th>Children</th>
+                        <td>:</td>
+                        <td><select class="option" name="subject">
+                            <option disabled="disabled" selected="selected">0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            
+
+                            <th>Infants</th>
+                        <td>:</td>
+                        <td><select class="option" name="subject">
+                            <option disabled="disabled" selected="selected">0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            
+                            
+                <tr>
+                    <th>Ticket Type</th>
+                    <td>:</td>
+                   <td>
+                    <label class="radio">
+                        <input class="radio-one" type="radio"  name="ticket type">
+                    <span></span>
+                  Return
+              </label>
+              <label class="radio">
+                  <input class="radio-two" type="radio" name="ticket type">
+              <span></span>
+            Oneway
+        
+        </label>
+                   </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <button>Search Flights</button>
+                    </td>
+                </tr>
+               
+
+
+                     
+                </table>
+            </fieldset>
+        </form >
+    </center>
+    <script type="test/javascript"> 
+        function validate ()
+         {
+            var From =document.forms["Flightt"]["From"].value;
+            var To = document.forms["Flightt"]["To"].value;
+                var Depart on = document.forms["Flightt"]["Date of journey "].value;
+              if(date=="") 
+              {
+                alert("enter the Date of journey");
+              return false;}
+              if(From==To){
+                alert("enter the valid details");
+              return false;
+    
+              }
+              }</script>
+</body>
+</html>

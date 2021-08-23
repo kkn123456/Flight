@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        input{
+            background-color:whitesmoke;
+        }
+        button{
+            background-color: rgb(8, 153, 8);
+        }
+    </style>
+    <head>
+        <link rel="stylesheet" href="Bookflight.css">
+    </head>
+    <center>
+    <body>
+        
+        <br>
+        <br>
+    <h1>Ticket Booking</h1>
+    <Body style="background-image: url(https://www.adelmantravel.com/wp-content/uploads/2020/09/bookingexperience.jpg);">
+        <form name="Ticket Booking" method="POST" onSubmit="return validate()">
+        <form action="process.php" method="POST">
+          <div>
+              <th><label>First Name</label></th>
+              <td>:</td>
+              <input type="text" name="first name">
+          </div>
+          <br>
+          <br>
+          <div>
+            <th><label>Last Name</label></th>
+            <td>:</td>
+            <input type="text" name="last name">
+        </div>
+        <br>
+        <br>
+           <div>
+            <label>Contact</label>
+            <td>:</td>
+            <input type="tel" name="contact">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label>Email</label>
+            <td>:</td>
+            <input type="email" name="email">
+        </div>
+        <br>
+        <div>
+            <label>Gender</label>
+            <td>:</td>
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female
+            <input type="radio" name="gender" value="other">Other
+            </select>
+        </div>
+        <br>
+        <br>
+        <div>
+            <label>Age</label>
+            <td>:</td>
+            <input type="number" name="age" value= 18 min="18">
+        </div>
+        <br>
+        
+        <br>
+       
+        <br>
+        
+           
+    </td> 
+</tr>
+
+      </form>
+      </form>
+    </center>
+      <script type="text/javascript">
+        function validate()
+        {
+            var first=document.forms["Ticket Booking"]["first name"].value;
+            var last=document.forms["Ticket Booking"]["last name"].value;
+            var contact=document.forms["Ticket Booking"]["contact"].value;
+            var email=document.forms["Ticket Booking"]["email"].value;
+            var gender=document.forms["Ticket Booking"]["gender"].value;
+            var age=document.forms["Ticket Booking"]["age"].value;
+            
+            if(first=="")
+            {
+                alert("enter the first name")
+                return false;
+            }
+            if(! isNaN(first))
+            {
+                alert("name should be in character");
+                return false; 
+            }
+            if(last=="")
+            {
+                alert("enter the last name")
+                return false;
+            }
+            if(! isNaN(last))
+            {
+                alert("name should be in character");
+                return false; 
+            }
+            var at = email.indexOf("@");
+            var dot = email.lastIndexOf(".");
+            if(at<1 || dot<at+2|| dot+2 >= email.length)
+            {
+                alert("Not a valid email");
+                return false;
+            }
+            
+            if(phone =="")
+            {
+                alert("enter contact");
+                return false;
+            }
+            if(isNaN(phone))
+            {
+                alert("phone number should be in digits");
+                return false;
+            }
+            if(phone.length!=10)
+            {
+                alert("must be 10 digit number");
+                return false;
+            }
+            if(gender =="")
+            {
+                alert("select a gender");
+                return false;
+            }
+
+        }
+    
+    </script>
+    </body>
+</html>
+<!DOCTYPE html>
+<head>
+    
+</head>
+<head>
+    <title></title>
+</head>
+<body >
+    
+            
+        <center>
+            <h1></h1>
+           
+<a href="confirmation.html"><button>Book Flight</button></a>
+
+     </center>
+</body>
+
+</html>
