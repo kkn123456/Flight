@@ -1,88 +1,34 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const mysql = require('mysql')
-
+t express = require('express');
 const app = express()
-const port = process.env.PORT || 5000;
+const port = 5000; // define the port to 3000
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+var bodyParser= require ('body-parser')
 
-// parse application/json
-app.use(bodyParser.json())
+app.use(express.json());
 
-// MySQL
-const pool  = mysql.createPool({
-    connectionLimit : 10,
-    host            : 'localhost',
-    user            : 'root',
-    password        : 'password',
-    database        : 'flight info'
-})
+app.engine('html', require('ejs').renderFile); 
+app.set('view engine', 'ejs');
+
+var jsonParser = bodyParser.json()
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
    
-// Get all flights
-app.get('', (req, res) => {
-    pool.getConnection((err, connection) => {
-        if(err) throw err
-        console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT * from flight search', (err, rows) => {
-            connection.release() // return the connection to pool
-
-            if (!err) {
-                res.send(rows)
-            } else {
-                console.log(err)
+// Display flight search to select origin and destination from database table
+app.get('/', (req, res) => {
+    db.query('select * from flight search',function (err, result, fields)){
+            if (err) 
+            {
+                throw err;
+            } 
+            else 
+            {
+             var arr =[]
+             for (var i in result)
             }
+ var people = result[i];
+ arr.push(people.city);
 
-            // if(err) throw err
-            console.log('The data from flight search table are: \n', rows)
-        })
-    })
-})
-
-// Get an flight 
-app.get('/:id', (req, res) => {
-    pool.getConnection((err, connection) => {
-        if(err) throw err
-        connection.query('SELECT * FROM flight search WHERE id = ?', [req.params.id], (err, rows) => {
-            connection.release() // return the connection to pool
-            if (!err) {
-                res.send(rows)
-            } else {
-                console.log(err)
-            }
-            
-            console.log('The data from flight search table are: \n', rows)
-        })
-    })
+        }
+        res.render('air.html',{city:arr});
+    }
 });
-
-
-
-
-app.put('', (req, res) => {
-
-    pool.getConnection((err, connection) => {
-        if(err) throw err
-        console.log(`connected as id ${connection.threadId}`)
-
-        const { Flightid, origin, destination, departure, arrival ,price , time } = req.body
-
-        connection.query('UPDATE flight search SET Flightid =? , origin=? , destination=?, departure=? , arrival=? ,price=? , time=?', [origin,destination, departure, arrival, price, time, id] , (err, rows) => {
-            connection.release() // return the connection to pool
-
-            if(!err) {
-                res.send(`flight with the name: ${origin} has been added.`)
-            } else {
-                console.log(err)
-            }
-
-        })
-
-        console.log(req.body)
-    })
-})
-
-
-// Listen on enviroment port or 5000
-app.listen(port, () => console.log(`Listening on port ${port}`))
